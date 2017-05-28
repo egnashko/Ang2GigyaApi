@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+// Normalise css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+input, select, button, input[type=button], input[type=submit], input:focus, select:focus {
+    outline: none;
+}
+a, a:hover, a:visited, a:active {
+    text-decoration: none;
+}
+button, a, input[type=button], input[type=submit] {
+    cursor: pointer;
+}
+li {
+    list-style: none;
+}
+// end

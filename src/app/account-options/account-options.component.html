@@ -1,0 +1,50 @@
+<section class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+  <div class="form-group account-options">
+    <form (submit)="setProperties()">
+      <label>
+        <input type="checkbox" class="unverified-login" [(ngModel)]="data.allowUnverifiedLogin" name="allowUnverifiedLogin">Allow unverified login
+      </label>
+
+      <label>
+        <input type="text" [(ngModel)]="data.defaultLanguage" name="defaultLanguage">Default language
+      </label>
+
+      <label>
+        <div class="btn-group" dropdown>
+          <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+            Identifier conflict<span class="caret"></span>
+          </button>
+          <ul *dropdownMenu class="dropdown-menu" role="menu">
+            <li role="menuitem"><a class="dropdown-item" href="#">{{ data.loginIdentifierConflict }}</a></li>
+          </ul>
+        </div>
+      </label>
+
+      <label>
+        <input type="text" class="login-identifiers" [(ngModel)]="data.loginIdentifiers" name="loginIdentifiers">Login identifier
+      </label>
+
+      <label>
+        <input type="checkbox" class="id-harvesting" [(ngModel)]="data.preventLoginIDHarvesting" name="preventLoginIDHarvesting">Prevent login IDHarvesting
+      </label>
+
+      <label>
+        <input type="checkbox" class="deleted-email" [(ngModel)]="data.sendAccountDeletedEmail" name="sendAccountDeletedEmail">Send account deleted email
+      </label>
+
+      <label>
+        <input type="checkbox" class="welcome-email" [(ngModel)]="data.sendWelcomeEmail" name="sendWelcomeEmail">Send welcome email
+      </label>
+
+      <label>
+        <input type="checkbox" class="verify-email" [(ngModel)]="data.verifyEmail" name="verifyEmail">Verify email
+      </label>
+
+      <label>
+        <input type="checkbox" class="provider-email" [(ngModel)]="data.verifyProviderEmail" name="verifyProviderEmail">Verify provider email
+      </label>
+
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</section>
