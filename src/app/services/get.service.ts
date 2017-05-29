@@ -11,20 +11,19 @@ export class jsonpService {
   constructor(private jsonp: Jsonp, private http: Http) { }
 
   jsonpGet(user, secret, api): Observable<any> {
-    let params = new URLSearchParams();
-    params.set('callback', 'JSONP_CALLBACK');
     return this.jsonp
       .get(`https://accounts.gigya.com/accounts.getPolicies?userkey=${user}&secret=${secret}&apikey=${api}&format=jsonp&callback=JSONP_CALLBACK`)
-      .map(res => res.json().accountOptions)
-      .catch(this.handleError); 
+      .map(res => { return res.json().accountOptions })
+      .catch(this.handleError);
   }
 
   httpSet(user, secret, api, body): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http
+    debugger
+    return this.jsonp
       .post(`https://accounts.gigya.com/accounts.setPolicies?userkey=${user}&secret=${secret}&apikey=${api}&format=jsonp&callback=JSONP_CALLBACK`, body)
-      .map(res =>  res.json())
+      .map(res => res.json())
   }
 
   private handleError(error:any) {
